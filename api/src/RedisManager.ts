@@ -22,7 +22,7 @@ export class RedisManager {
         return this.instance;
     }
     // to avoid parallel transactions execution
-    public sendAndWait(message: MessageToEngine) {
+    public sendAndAwait(message: MessageToEngine) {
       return new Promise<MessageFromOrderbook>((resolve) => {
         const id = this.getRandomClientId();
         this.client.subscribe(id, (message) => {
